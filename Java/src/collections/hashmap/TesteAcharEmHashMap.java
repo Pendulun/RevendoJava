@@ -17,9 +17,12 @@ public class TesteAcharEmHashMap {
 
 	private static int NUM_PESSOAS_TOTAL = 10000;
 	private static int NUM_PESSOAS_PROCURADAS = 10;
-	private static Random random = new Random();
+	private static int RANDOM_SEED = 42;
+	private static Random random;
 
 	public static void main(String[] args) {
+		
+		random = new Random(RANDOM_SEED);
 
 		List<Pessoa> listaPessoas = new ArrayList<>();
 
