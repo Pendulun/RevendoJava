@@ -6,11 +6,14 @@ import java.util.Random;
 
 public class testeAcharEmLista {
 
-	private static int NUM_PESSOAS = 10000;
-	private static Random random = new Random();
+	private static final int NUM_PESSOAS = 10000;
+	private static final int NUM_PESSOAS_PROCURADAS = 10;
+	private static Random random;
+	private static final int RANDOM_SEED = 74;
 	
 	
 	public static void main(String[] args) {
+		random = new Random(RANDOM_SEED);
 		
 		List<Pessoa> pessoas = new ArrayList<Pessoa>();
 		
@@ -22,7 +25,7 @@ public class testeAcharEmLista {
 		
 		System.out.println("\n");
 		
-		procurarNPessoas(pessoas, 10);
+		procurarNPessoas(pessoas, NUM_PESSOAS_PROCURADAS);
 
 	}
 	
@@ -33,8 +36,7 @@ public class testeAcharEmLista {
 		System.out.println("----N Pessoas----");
 		int[] indexes = new int[nPessoas];
 		int[] qtEqContains = new int[nPessoas];
-		//int[] qtEqIndexOf = new int[nPessoas];
-		int[] qtEqForExcluindo = new int[nPessoas];
+		int[] qtEqFor = new int[nPessoas];
 		
 		indexes = geraNIndexes(nPessoas);
 		
@@ -42,26 +44,15 @@ public class testeAcharEmLista {
 			int indexPessoa = indexes[i];
 			Pessoa pessoa = pessoas.get(indexPessoa);
 			qtEqContains[i] = calculaGanho(indexPessoa,procurarPessoaViaContains(pessoas,pessoa));
-		//	qtEqIndexOf[i] = calculaGanho(indexPessoa, procurarPessoaViaIndexOf(pessoas,pessoa));
-				
+			qtEqFor[i] = calculaGanho(indexPessoa, procurarPessoaViaFor(pessoas,pessoa));
 		}
-		
-		for(int i=0; i<nPessoas; i++) {
-			int indexPessoa = indexes[i];
-			Pessoa pessoa = pessoas.get(indexPessoa);
-			qtEqForExcluindo[i] = calculaGanho(indexPessoa, procurarPessoaViaForExcluindo(pessoas,pessoa));
-				
-		}
-		
 		
 		System.out.println("Indexes objetos na lista: ");
 		imprimeResultado(indexes);
 		System.out.println("Comparações usando o contains: ");
 		imprimeResultado(qtEqContains);
-		//System.out.println("qtEqIndexOf: ");
-		//imprimeResultado(qtEqIndexOf);
-		System.out.println("Comparações usando o for com remove: ");
-		imprimeResultado(qtEqForExcluindo);
+		System.out.println("Comparações usando o for: ");
+		imprimeResultado(qtEqFor);
 		
 	}
 
@@ -73,8 +64,8 @@ public class testeAcharEmLista {
 
 
 
-	private static int calculaGanho(int indexPessoa, int procurarPessoaViaContains) {
-		return indexPessoa - procurarPessoaViaContains;
+	private static int calculaGanho(int indexPessoa, int comparacoes) {
+		return indexPessoa - comparacoes;
 	}
 
 
@@ -105,10 +96,10 @@ public class testeAcharEmLista {
 	}
 
 
-	private static int procurarPessoaViaForExcluindo(List<Pessoa> pessoas, Pessoa pessoaProc) {
+	private static int procurarPessoaViaFor(List<Pessoa> pessoas, Pessoa pessoaProc) {
+		Pessoa.vezesEquals=0;
 		for(Pessoa pessoa : pessoas) {
 			if(pessoa.equals(pessoaProc)) {
-				pessoas.remove(pessoaProc);
 				int vezesEq = Pessoa.vezesEquals;
 				Pessoa.vezesEquals = 0;
 				return vezesEq;
