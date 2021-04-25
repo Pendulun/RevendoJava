@@ -2,12 +2,18 @@ package collections.hashmap;
 
 public class PessoaPK {
 
-	private String nome;
-	private String cpf;
-	private String rg;
+	private final String nome;
+	private final String cpf;
+	private final String rg;
+	public static int vezesEquals=0;
 	
-	
-	
+	public PessoaPK(String nome, String cpf, String rg) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.rg = rg;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -20,6 +26,7 @@ public class PessoaPK {
 	
 	@Override
 	public boolean equals(Object obj) {
+		vezesEquals++;
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -53,21 +60,11 @@ public class PessoaPK {
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	public String getCpf() {
 		return cpf;
-	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 	public String getRg() {
 		return rg;
 	}
-	public void setRg(String rg) {
-		this.rg = rg;
-	}
-	
 	
 }

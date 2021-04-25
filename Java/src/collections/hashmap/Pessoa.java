@@ -2,7 +2,6 @@ package collections.hashmap;
 
 public class Pessoa {
 	
-	private String id;
 	private PessoaPK pessoaPK;
 	private int idade;
 	private int alturaCm;
@@ -13,6 +12,10 @@ public class Pessoa {
 	
 	
 	
+	public Pessoa(PessoaPK pessoaPK) {
+		super();
+		this.pessoaPK = pessoaPK;
+	}
 
 	@Override
 	public int hashCode() {
@@ -24,6 +27,7 @@ public class Pessoa {
 	
 	@Override
 	public boolean equals(Object obj) {
+		Pessoa.vezesEquals++;
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -44,11 +48,8 @@ public class Pessoa {
 		return "Pessoa [pessoaPK=" + pessoaPK + "]";
 	}
 
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
+	public PessoaPK getPessoaPK() {
+		return pessoaPK;
 	}
 
 	public int getIdade() {
