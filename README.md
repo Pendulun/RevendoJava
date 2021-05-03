@@ -1,22 +1,13 @@
 # RevendoJava
-O objetivo desse repositório é registrar alguns testes/estudos meus em Java.
+The objective of this repository is to register some of my tests/studies in Java.
 
 ## IDE
 Eclipse IDE
 
-## O que fiz até agora
-<ul>
-  <li>Collections
-    <p>
-      <ol>
-        <li>
-          <p>Comparei a busca de objetos em List's ao analisar o número de vezes que o método equals foi chamado. (pacote collections.lists).</p>
-        </li>  
-        <li>
-          <p>Comparei a busca de objetos em HashMap's e List's ao analisar o número de vezes que o método equals foi chamado. (pacote collections.hashmap).<p>
-          <p><b>Spoiler:</b> HashMap é bem melhor</p>
-        </li> 
-      </ol>
-    </p>
-  </li>
-</ul>
+## What I've done
+
+- Collections 
+  1. Compared searching objects in List's analysing the number of times the equals method was called. (package java.src.collections.lists).
+  2. Compared searching objects in List's with and without previous ordering analysing the number of comparations needed. (package java.src.collections.lists.searchSortingFirst)
+  3. Compared searching objects in HashMap's and List's analysing the number of times the equals method was called. (package java.src.collections.hashmap.searchInArrayListAndHashMap). **Spoiler**: HashMap is much better
+
