@@ -1,7 +1,9 @@
-package collections.hashmap;
+package collections.hashmap.searchObjectHashMap;
 
 import java.util.HashMap;
 import java.util.Random;
+
+import collections.hashmap.Car;
 
 /**
  * Essa classe mostra um jeito de procurar por um objeto com atributos já

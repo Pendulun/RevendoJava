@@ -1,10 +1,12 @@
-package collections.lists;
+package collections.lists.searchInList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class testeAcharEmLista {
+import collections.lists.Pessoa;
+
+public class TesteAcharEmLista {
 
 	private static final int NUM_PESSOAS = 10000;
 	private static final int NUM_PESSOAS_PROCURADAS = 10;

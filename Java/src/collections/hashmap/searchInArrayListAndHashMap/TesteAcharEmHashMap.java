@@ -1,4 +1,4 @@
-package collections.hashmap;
+package collections.hashmap.searchInArrayListAndHashMap;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+
+import collections.hashmap.Pessoa;
+import collections.hashmap.PessoaPK;
 
 /**
  * Comparamos encontrar um número de objetos de Pessoa em um ArrayList e em um HashMap.
